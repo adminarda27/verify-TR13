@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>認証ページ</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background: #0b0c10;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .auth-button {
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+    .auth-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>認証が必要です</h1>
+    <button class="auth-button" onclick="authenticate()">認証する</button>
+  </div>
+  <script>
+    function authenticate() {
+      fetch('/send_info', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ user_agent: navigator.userAgent })
+      })
+      .then(res => res.json())
+      .then(() => alert("認証完了！"))
+      .catch(err => console.error(err));
+    }
+  </script>
+</body>
+</html>
