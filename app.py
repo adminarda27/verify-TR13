@@ -11,9 +11,9 @@ load_dotenv()
 app = Flask(__name__)
 ACCESS_LOG_FILE = "access_log.json"
 
-DISCORD_CLIENT_ID = os.getenv("DISCORD_CLIENT_ID")
-DISCORD_CLIENT_SECRET = os.getenv("DISCORD_CLIENT_SECRET")
-REDIRECT_URI = os.getenv("DISCORD_REDIRECT_URI")
+DISCORD_CLIENT_ID = os.getenv("1367928958510829608")
+DISCORD_CLIENT_SECRET = os.getenv("9xeXoT2Irca7khBnGS6p8VdHgsR8laA2")
+REDIRECT_URI = os.getenv("http://127.0.0.1:5000/callback")
 
 
 def get_client_ip():
@@ -122,7 +122,7 @@ def show_logs():
 
 
 def run_bot():
-    bot.run(os.getenv("DISCORD_BOT_TOKEN"))
+    bot.run(os.getenv("MTM2NzkyODk1ODUxMDgyOTYwOA.GFpe_Y.h0mr9RdVBwU__N2NyoWu9ZW9tvSiv3ibufjvj8"))
 
 
 if __name__ == "__main__":
