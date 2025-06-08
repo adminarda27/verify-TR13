@@ -122,7 +122,12 @@ def show_logs():
 
 
 def run_bot():
-    bot.run(os.getenv("MTM2NzkyODk1ODUxMDgyOTYwOA.GFpe_Y.h0mr9RdVBwU__N2NyoWu9ZW9tvSiv3ibufjvj8"))
+    token = os.getenv("MTM2NzkyODk1ODUxMDgyOTYwOA.GFpe_Y.h0mr9RdVBwU__N2NyoWu9ZW9tvSiv3ibufjvj8")
+    if token is None:
+        print("ERROR: DISCORD_BOT_TOKENが環境変数に設定されていません。")
+        return
+    bot.run(token)
+
 
 
 if __name__ == "__main__":
